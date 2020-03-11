@@ -17,7 +17,11 @@ export default class extends React.Component {
       //  중괄호 안에는 $를 넣어줘야함
       `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=${API_KEY}&units=metric`
     );
-    this.setState({ isLoading:false, temp: data.main.temp})
+    this.setState({ 
+      isLoading:false, 
+      condition: "Clear",
+      temp: data.main.temp
+    })
   };
   getLocation = async() => {
     try {
@@ -36,8 +40,8 @@ export default class extends React.Component {
     this.getLocation();
   };
   render(){
-    const { isLoading, temp } = this.state;
+    const { isLoading, temp, condition } = this.state;
     // 온도 숫자 (소수점 제외)
-    return isLoading ? <Loading /> : <Weather temp={Math.round(temp)} />;
+    return isLoading ? <Loading /> : <Weather temp={Math.round(temp)} condition={condition} />;
   }
 }
