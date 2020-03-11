@@ -12,15 +12,20 @@ export default class extends React.Component {
     isLoading: true
   };
   getWeather = async(latitude, longitude) => {
-    const { data } = await axios.get(
+    const {
+      data: {
+          main: { temp },
+          weather
+      }
+} = await axios.get(
       //  template srings임 (자바스크립트 es6버전)
       //  중괄호 안에는 $를 넣어줘야함
       `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=${API_KEY}&units=metric`
     );
     this.setState({ 
       isLoading:false, 
-      condition: "Clear",
-      temp: data.main.temp
+      condition: weather[0].main,
+      temp
     })
   };
   getLocation = async() => {
