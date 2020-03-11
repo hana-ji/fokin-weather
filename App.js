@@ -18,15 +18,13 @@ export default class extends React.Component {
           weather
       }
 } = await axios.get(
-      //  template srings임 (자바스크립트 es6버전)
-      //  중괄호 안에는 $를 넣어줘야함
       `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=${API_KEY}&units=metric`
     );
     this.setState({ 
       isLoading:false, 
       condition: weather[0].main,
       temp
-    })
+    });
   };
   getLocation = async() => {
     try {
@@ -34,9 +32,7 @@ export default class extends React.Component {
       const {
         coords: {latitude, longitude} 
       } = await Location.getCurrentPositionAsync();
-      // 같은 인자값이 함수에 넘겨짐
       this.getWeather(latitude, longitude);
-      this.setState({ isLoading: false});
     } catch (error) {
       Alert.alert("can't find you", "So sad")
     }
@@ -46,7 +42,6 @@ export default class extends React.Component {
   };
   render(){
     const { isLoading, temp, condition } = this.state;
-    // 온도 숫자 (소수점 제외)
     return isLoading ? <Loading /> : <Weather temp={Math.round(temp)} condition={condition} />;
   }
 }

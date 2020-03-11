@@ -4144,11 +4144,6 @@ prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
     object-assign "^4.1.1"
     react-is "^16.8.1"
 
-props-type@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/props-type/-/props-type-1.0.1.tgz#9764ae1b1be01095412112b586d7f823730c6afa"
-  integrity sha512-Jc84Wrxp8yje+3OaOTLNqsnuWSuAlopobmqk4KVxUGbZ5WbQJm3YoPQDxZiSIaHLA9CTavD45TOIm8u5wwoO2g==
-
 pseudomap@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/pseudomap/-/pseudomap-1.0.2.tgz#f052a28da70e618917ef0a8ac34c1ae5a68286b3"
